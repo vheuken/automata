@@ -17,7 +17,7 @@
 
   :cljsbuild {
     :builds [{:id "dev"
-              :source-paths ["src"]
+              :source-paths ["src" "test"]
               :compiler {
                 :main clojuremata.core
                 :output-to "out/clojuremata.js"
@@ -32,4 +32,6 @@
                 :output-to "out-adv/clojuremata.min.js"
                 :output-dir "out-adv"
                 :optimizations :advanced
-                :pretty-print false}}]})
+                :pretty-print false}}]
+    :test-commands {"unit-tests" ["phantomjs" :runner
+				  "out/clojuremata.js"]}})
