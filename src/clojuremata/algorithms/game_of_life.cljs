@@ -20,14 +20,15 @@
 	(into []
 	  (map-indexed
 	    (fn [col-index cell]
-	      (if (alive? cell)
-		(if (< (count-neighbors grid col-index row-index) 2)
-		  0
-		  (if (> (count-neighbors grid col-index row-index) 3)
+	      (let [neighbors (count-neighbors grid col-index row-index)]
+		(if (alive? cell)
+		  (if (< neighbors 2)
 		    0
-		    1))
-		(if (== (count-neighbors grid col-index row-index) 3)
-		  1
-		  0)))
+		    (if (> neighbors 3)
+		      0
+		      1))
+		  (if (= neighbors 3)
+		    1
+		    0))))
 	    row)))
       grid)))
