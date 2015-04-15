@@ -22,9 +22,9 @@
                 :main clojuremata.core
                 :output-to "out/clojuremata.js"
                 :output-dir "out"
-                :optimizations :none
+                :optimizations :whitespace
                 :cache-analysis true
-                :source-map true}}
+                :source-map "out/clojuremata.js.map"}}
              {:id "release"
               :source-paths ["src"]
               :compiler {
