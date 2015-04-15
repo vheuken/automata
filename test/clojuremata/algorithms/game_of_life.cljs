@@ -34,3 +34,10 @@
 	    [0 1 1]
 	    [0 0 0]] (run grid)))))
 
+(deftest cell-with-three-neighbors-lives
+  (let [grid [[0 1 1]
+	      [0 1 1]
+	      [0 0 0]]]
+    (is (= [[0 1 1]
+	    [0 1 1]
+	    [0 0 0]] (run grid)))))
