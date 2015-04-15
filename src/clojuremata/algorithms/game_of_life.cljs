@@ -5,9 +5,13 @@
 
 (defn run [grid]
   (into []
-    (for [row grid]
-      (into []
-	(for [cell row]
-	  (if (alive? cell)
-	    0
-	    cell))))))
+    (map-indexed
+      (fn [row-index row]
+	(into []
+	  (map-indexed
+	    (fn [col-index cell]
+	      (if (alive? cell)
+		0
+		cell))
+	    row)))
+      grid)))
