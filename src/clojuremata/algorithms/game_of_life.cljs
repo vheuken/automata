@@ -3,6 +3,16 @@
 (defn alive? [cell]
   (= cell 1))
 
+(defn count-neighbors [grid x y]
+  (reduce +
+    (map
+      (fn [x-offset y-offset]
+	(if (alive? (get (get grid (+ y y-offset)) (+ x x-offset)))
+	  1
+	  0))
+      [1 0 1 -1  0 -1 -1  1]
+      [0 1 1 -1 -1  0  1 -1])))
+
 (defn run [grid]
   (into []
     (map-indexed
@@ -11,7 +21,9 @@
 	  (map-indexed
 	    (fn [col-index cell]
 	      (if (alive? cell)
-		0
+		(if (< (count-neighbors grid col-index row-index) 2)
+		  0
+		  cell)
 		cell))
 	    row)))
       grid)))
