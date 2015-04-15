@@ -23,7 +23,9 @@
 	      (if (alive? cell)
 		(if (< (count-neighbors grid col-index row-index) 2)
 		  0
-		  cell)
+		  (if (> (count-neighbors grid col-index row-index) 3)
+		    0
+		    cell))
 		cell))
 	    row)))
       grid)))

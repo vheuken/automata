@@ -41,3 +41,11 @@
     (is (= [[0 1 1]
 	    [0 1 1]
 	    [0 0 0]] (run grid)))))
+
+(deftest cell-with-over-three-neighbors-dies
+  (let [grid [[0 1 1]
+	      [0 1 1]
+	      [0 0 1]]]
+    (is (= [[0 1 1]
+	    [0 0 0]
+	    [0 0 1]] (run grid)))))
