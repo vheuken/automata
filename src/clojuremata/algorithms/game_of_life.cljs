@@ -25,7 +25,9 @@
 		  0
 		  (if (> (count-neighbors grid col-index row-index) 3)
 		    0
-		    cell))
-		cell))
+		    1))
+		(if (== (count-neighbors grid col-index row-index) 3)
+		  1
+		  0)))
 	    row)))
       grid)))
