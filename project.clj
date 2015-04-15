@@ -18,6 +18,7 @@
   :cljsbuild {
     :builds [{:id "dev"
               :source-paths ["src" "test"]
+	      :notify-command ["phantomjs" :cljs.test/runner "out/clojuremata.js"]
               :compiler {
                 :main clojuremata.core
                 :output-to "out/clojuremata.js"
