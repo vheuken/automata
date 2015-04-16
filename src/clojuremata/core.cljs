@@ -5,4 +5,10 @@
 
 (enable-console-print!)
 
-(println "Hello world!")
+(def global-board
+  [
+    [0 0 0]
+    [1 1 1]
+    [0 0 0]
+  ]
+)
